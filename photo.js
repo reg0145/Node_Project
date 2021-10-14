@@ -12,13 +12,13 @@ function arrangeFile(dir){
       .readdir(dir)
       .then((files) => {  
         files.forEach((file) => {
-            if (file.match(/.(png|aae)/)){    
+            if (file.match(/.(png|aae)$/)){    
                 moveFile(path.join(dir, file),'captured');
             }
-            else if (file.match(/.(mp4|mov|avi|wmv)/)){
+            else if (file.match(/.(mp4|mov|avi|wmv)$/)){
                 moveFile(path.join(dir, file),'video');
             }
-            else if (file.match(/^IMG_E.*(jpg|jpeg)/)){
+            else if (file.match(/^IMG_E.*(jpg|jpeg)$/)){
                 var originalPath = path.join(dir, 'IMG_' + file.split('IMG_E')[1]);
                 try{
                     if (fs.statSync(originalPath).isFile())
