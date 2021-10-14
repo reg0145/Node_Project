@@ -13,16 +13,16 @@ function arrangeFile(dir){
       .then((files) => {  
         files.forEach((file) => {
             if (file.match(/.(png|aae)$/)){    
-                moveFile(join(dir, file),'captured');
+                moveFile(join(dir, file),'./captured');
             }
             else if (file.match(/.(mp4|mov|avi|wmv)$/)){
-                moveFile(join(dir, file),'video');
+                moveFile(join(dir, file),'./video');
             }
             else if (file.match(/^IMG_E.*(jpg|jpeg)$/)){
                 let originalPath = join(dir, 'IMG_' + file.split('IMG_E')[1]);
                 try{
                     if (fs.statSync(originalPath).isFile())
-                        moveFile(originalPath, 'duplicated');
+                        moveFile(originalPath, './duplicated');
                 } catch (error){}       
             }
         });
