@@ -2,7 +2,7 @@ import fs from 'fs'
 import path, {join} from 'path'
 
 if (process.argv.length == 3){
-    var dir = join(path.dirname(process.argv[1]), process.argv[2]);
+    let dir = join(path.dirname(process.argv[1]), process.argv[2]);
     arrangeFile(dir);
 }
 
@@ -19,7 +19,7 @@ function arrangeFile(dir){
                 moveFile(join(dir, file),'video');
             }
             else if (file.match(/^IMG_E.*(jpg|jpeg)$/)){
-                var originalPath = join(dir, 'IMG_' + file.split('IMG_E')[1]);
+                let originalPath = join(dir, 'IMG_' + file.split('IMG_E')[1]);
                 try{
                     if (fs.statSync(originalPath).isFile())
                         moveFile(originalPath, 'duplicated');
