@@ -1,0 +1,20 @@
+{
+  "name": "node_project",
+  "version": "1.0.0",
+  "description": "Arrange files",
+  "main": "photo",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon photo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reg0145/Node_Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reg0145/Node_Project/issues"
+  },
+  "homepage": "https://github.com/reg0145/Node_Project#readme"
+}
