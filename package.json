@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Arrange files",
   "main": "photo",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon photo"

@@ -1,9 +1,8 @@
-
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs'
+import path from 'path'
 
 if (process.argv.length == 3){
-    dir = path.join(__dirname, process.argv[2]);
+    var dir = path.join(path.dirname(process.argv[1]), process.argv[2]);
     arrangeFile(dir);
 }
 
@@ -12,7 +11,7 @@ function arrangeFile(dir){
     fs.promises
       .readdir(dir)
       .then((files) => {  
-        files.forEach(file => {
+        files.forEach((file) => {
             if (file.match(/.(png|aae)/)){    
                 moveFile(path.join(dir, file),'captured');
             }
@@ -20,7 +19,7 @@ function arrangeFile(dir){
                 moveFile(path.join(dir, file),'video');
             }
             else if (file.match(/^IMG_E.*(jpg|jpeg)/)){
-                originalPath = path.join(dir, 'IMG_' + file.split('IMG_E')[1]);
+                var originalPath = path.join(dir, 'IMG_' + file.split('IMG_E')[1]);
                 try{
                     if (fs.statSync(originalPath).isFile())
                         moveFile(originalPath, 'duplicated');
@@ -35,8 +34,8 @@ function arrangeFile(dir){
 // file   : 파일의 전체경로 
 // movedir: 옮길 폴더명
 function moveFile(file, movedir){
-    filedir = path.dirname(file);
-    filename = path.basename(file);
+    var filedir = path.dirname(file);
+    var filename = path.basename(file);
     fs.mkdir(path.join(filedir, movedir), { recursive:true } , (error) =>{
         if (error) console.error(error);
     });
