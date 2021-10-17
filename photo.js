@@ -34,8 +34,8 @@ function arrangeFile(dir){
 // file   : 파일의 전체경로 
 // movedir: 옮길 폴더명
 function moveFile(file, movedir){
-    var filedir = path.dirname(file);
-    var filename = path.basename(file);
+    let filedir = path.dirname(file);
+    let filename = path.basename(file);
     fs.mkdir(join(filedir, movedir), { recursive:true } , (error) =>{
         if (error) console.error(error);
     });
