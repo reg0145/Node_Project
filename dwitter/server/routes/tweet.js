@@ -26,7 +26,7 @@ router.route('/')
                 if (tweet)
                     return res.status(200).json(tweet);
                 else
-                    return res.status(400).json({Message:'Username not found'});
+                    return res.status(404).json({Message:'Username not found'});
             }
             res.status(200).json(tweets);
       })
