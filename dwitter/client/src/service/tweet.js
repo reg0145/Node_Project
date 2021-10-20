@@ -5,11 +5,9 @@ export default class TweetService {
     ? `http://localhost:8080/tweets?username=${username}`
     : `http://localhost:8080/tweets`;
 
-    try {
-      const response = await fetch(url);
-      const json = await response.json();
-      return json;
-    } catch (err) {console.error(err)}
+    return await fetch(url)
+    .then((res) => res.json)
+    .catch(console.error);
   }
     /* return username
       ? this.tweets.filter((tweet) => tweet.username === username)
@@ -23,9 +21,15 @@ export default class TweetService {
       username: 'ellie',
       text,
     };
-    
-    this.tweets.push(tweet);
-    return tweet;
+    return await fetch('http://localhost:8080/tweets', {
+      method: 'POST',
+      body: JSON.stringify(tweet),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then((res) => res.json())
+    .catch(console.error);
   }
 
   async deleteTweet(tweetId) {
