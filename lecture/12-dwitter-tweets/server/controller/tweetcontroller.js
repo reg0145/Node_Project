@@ -3,9 +3,7 @@ import * as data from "../data/tweet.js";
 // GET /tweets
 // GET /tweets?username=:username
 export const getTweets = (req, res) => {
-    const tweets = req.params.username 
-            ? data.getTweets(username)
-            : data.getTweets();
+    const tweets = data.getTweets(req.params.username);
     res.status(200).json(tweets);
 }
 // GET /tweets/:id
