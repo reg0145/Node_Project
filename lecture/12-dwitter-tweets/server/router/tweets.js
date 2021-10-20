@@ -1,17 +1,17 @@
 import express from 'express';
 import 'express-async-errors';
-import tweetcontroller from '../controller/tweetcontroller.js';
+import * as controller from '../controller/tweetcontroller.js';
 
 const router = express.Router();
 // GET /tweets
-router.get('/', tweetcontroller.getTweets);
+router.get('/', controller.getTweets);
 // POST /tweeets
-router.post('/', tweetcontroller.createTweet);
+router.post('/', controller.createTweet);
 // GET /tweets/:id
-router.get('/:id', tweetcontroller.getUserTweets);
+router.get('/:id', controller.getTweet);
 // PUT /tweets/:id
-router.put('/:id', tweetcontroller.updateTweet);
+router.put('/:id', controller.updateTweet);
 // DELETE /tweets/:id
-router.delete('/:id',  tweetcontroller.deleteTweet);
+router.delete('/:id',  controller.deleteTweet);
 
 export default router;

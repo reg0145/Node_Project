@@ -16,7 +16,7 @@ export function getTweets(username){
 }
 
 export function getTweet(id){
-    return tweets.find((tweet) => tweet.id === id);
+    return tweets.find((tweet) => tweet.id.toString() === id);
 }
 
 export function createTweet(text, name, username){
@@ -32,7 +32,7 @@ export function createTweet(text, name, username){
 }
 
 export function updateTweet(id, text){
-    const tweet = tweets.find((tweet) => tweet.id === id);
+    const tweet = tweets.find((tweet) => tweet.id.toString() === id);
     if (tweet) {
         tweet.text = text;
     }
@@ -40,6 +40,6 @@ export function updateTweet(id, text){
 }
 
 export function deleteTweet(id){
-    tweet = tweets.filter((tweet) => tweet.id !== id);
+    const tweet = tweets.filter((tweet) => tweet.id.toString() !== id);
     tweets.pop(tweet);
 }

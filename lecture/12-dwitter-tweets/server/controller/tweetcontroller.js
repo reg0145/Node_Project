@@ -1,4 +1,4 @@
-import data from "../data/tweet.js";
+import * as data from "../data/tweet.js";
 
 // GET /tweets
 // GET /tweets?username=:username
@@ -34,6 +34,6 @@ export const updateTweet = (req, res) => {
 }
 
 export const deleteTweet = (req, res) => {
-    deleteTweet(req.params.id);
+    data.deleteTweet(req.params.id);
     res.sendStatus(204);
 }
